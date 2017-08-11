@@ -34,7 +34,7 @@ export default function({types: t}) {
               path.insertBefore(
                 t.ImportDeclaration(
                   [t.importDefaultSpecifier(t.identifier('withStyles'))],
-                  t.stringLiteral('isomorphic-style-loader2/lib/withStyles')
+                  t.stringLiteral('critical-css-style-loader/lib/withStyles')
                 )
               )
             } else {

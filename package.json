@@ -1,6 +1,6 @@
 {
   "name": "critical-css-style-loader",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "CSS style loader for Webpack optimized for critical path CSS rendering and isomoprhic web apps",
   "repository": "shubo/critical-css-style-loader",
   "author": "Shubo Chao <shubochao@gmail.com> (http://shubo.io)",
