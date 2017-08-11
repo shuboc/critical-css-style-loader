@@ -1,1 +1,1 @@
-# critical-css-loader
+# critical-css-style-loader
