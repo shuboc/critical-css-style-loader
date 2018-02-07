@@ -1,6 +1,6 @@
 # critical-css-style-loader
 
-Generate critical CSS during server rendering to prevent CSS from render blocking.
+Remove CSS bundle from [critical rendering path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/) to make [first contentful paint](https://gtmetrix.com/blog/first-contentful-paint-explained/) much faster by dynamically generate critical CSS during server rendering.
 
 # Install
 
@@ -28,9 +28,7 @@ module: {
                 {
                     loader: 'css-loader',
                     options: {
-                    modules: true,
-                    camelCase: true,
-                    importLoaders: 2
+                        modules: true
                     }
                 }
             ]
@@ -47,7 +45,6 @@ import addCss from 'critical-css-style-loader/lib/addCss'
 
 // In render function, collect critical CSS using insertCss, StyleContext and getCssByIds
 const ids = []
-const {getCssByIds} = addCss
 
 const insertCss = (...styles) => styles.forEach(style => {
     const content = style._getContent()
@@ -65,6 +62,7 @@ const content = renderToString(
     </Provider>
 )
 
+const {getCssByIds} = addCss
 const criticalCss = getCssByIds(ids)
 
 // Use your favorite template engine to inline critical CSS
@@ -73,7 +71,7 @@ res.render('index', {criticalCss})
 
 **index.pug**
 
-The CSS bundle can be loaded asynchronously since all necessary CSS are inlined with the document during the process of server rendering.
+The CSS bundle can be loaded asynchronously and will not block rendering since all critical CSS are inlined with the document during the process of server rendering.
 
 ```
 style.
