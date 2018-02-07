@@ -1,4 +1,4 @@
-# critical-css-style-loader
+# Critical CSS Style Loader
 
 Remove CSS bundle from [critical rendering path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/) to make [first contentful paint](https://gtmetrix.com/blog/first-contentful-paint-explained/) much faster by dynamically generate critical CSS during server rendering.
 
